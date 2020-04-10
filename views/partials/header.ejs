@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>YelpCamp</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="/stylesheets/main.css">
+		<style>
+			body {
+  			background-color: #000;
+				background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+			}
+		</style>
+	</head>
+	<body>
+		
+<nav class="navbar navbar-default navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">YelpCamp</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<%if(!currentuser){%>
+				<li><a href="/login">LOGIN</a></li>
+				<li><a href="/register">SIGNUP</a></li>
+				<%}else{%>
+				<li><a href="#">User : <%=currentuser.username%></a></li>
+				<li><a href="/logout">LOGOUT</a></li>
+				<%}%>
+			</ul>
+		</div>
+	</div>
+</nav>
+		<div class="container text-center">
+			<%if(error && error.length>0){%>
+			<div class="alert alert-danger" role="alert"><%=error%></div>
+			<%}%>
+			<%if(success && success.length>0){%>
+			<div class="alert alert-success" role="alert"><%=success%></div>
+			<%}%>
+		</div>

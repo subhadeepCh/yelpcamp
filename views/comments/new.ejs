@@ -1,0 +1,33 @@
+<%- include("../partials/header") %>
+<style>
+	.forms{
+		width:30%;
+		margin:30px auto;		
+	}
+</style>
+<div class="container text-center">
+	<h1>Create New Comment to <%= campers.name %></h1>
+	<div class="forms">
+	<div class="row">
+		<form action="/campground/<%= campers._id%>/comments" method="post">
+			<div class="form-group">
+			<input class="form-control" type="text" name="comment[text]" placeholder="text">			
+			</div>
+			
+			<div class="form-group">
+			<button class="btn btn-primary btb-lg btn-block">
+			SUBMIT
+			</button>
+			</div>
+			<div class="form-group">
+			<a class="btn btb-lg btn-block" href="/campground/<%=campers._id%>">
+			Go Back
+			</a>
+			</div>
+		</form>	
+	</div>	
+	</div>
+	
+</div>
+
+<%- include("../partials/footer") %>
